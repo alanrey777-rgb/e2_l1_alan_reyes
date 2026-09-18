@@ -20,9 +20,13 @@ void main() {
 
     Future<void> captura(String nombre, {bool arriba = true}) async {
       if (arriba) {
-        await tester.ensureVisible(find.text('Tu día, tus hábitos'));
+        tester
+            .state<ScrollableState>(find.byType(Scrollable).first)
+            .position
+            .jumpTo(0);
         await tester.pumpAndSettle();
       }
+      await tester.pump(const Duration(seconds: 1));
       await binding.takeScreenshot(nombre);
     }
 
@@ -55,7 +59,14 @@ void main() {
     await tester.ensureVisible(find.byKey(const Key('reiniciar')));
     await tester.pumpAndSettle();
     await captura('05-nota', arriba: false);
-    await tester.enterText(campo, '');
+    await tester.ensureVisible(campo);
+    await tester.tap(campo);
+    await tester.pumpAndSettle();
+    await tester.enterText(campo, ' ');
+    await tester.pumpAndSettle();
+    expect(tester.widget<TextField>(campo).controller!.text.trim(), isEmpty);
+    await tester.testTextInput.receiveAction(TextInputAction.done);
+    await tester.pumpAndSettle();
     await tocar('guardarNota');
     expect(find.text('Sin nota'), findsOneWidget);
     await tocar('reiniciar');
