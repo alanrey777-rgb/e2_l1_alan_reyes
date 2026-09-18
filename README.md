@@ -77,10 +77,6 @@ Durante la implementación, el análisis sí detectó un error real: la prueba q
 - [setState y reconstrucción](https://api.flutter.dev/flutter/widgets/State/setState.html)
 - [Ciclo de vida de TextEditingController](https://api.flutter.dev/flutter/widgets/TextEditingController-class.html)
 
-## Video y entrega
-
-Ver `docs/GUIA_VIDEO.md` para el recorrido de demostración.
-
 ```sh
 flutter drive --driver=test_driver/integration_test.dart --target=integration_test/panel_test.dart -d emulator-5554
 ```
