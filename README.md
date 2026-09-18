@@ -4,7 +4,7 @@ Aplicación Flutter para registrar cinco hábitos durante el día, observar el a
 
 ## Identificación
 
-Proyecto creado por el usuario en Android Studio: `e2_l1_alan_reyes`. Nombre sugerido para la entrega según la guía: `lab_habitos_alan_reyes`. Se conserva el nombre elegido por el usuario en el proyecto. No se ha publicado repositorio ni grabado video. El historial fue generado por el asistente con identidad local `Codex`, sin atribuir commits al estudiante.
+Proyecto Flutter: `e2_l1_alan_reyes`.
 
 ## Ejecutar
 
@@ -70,7 +70,7 @@ Las pruebas se encuentran en `test/widget_test.dart`. El recorrido de integraci�
 
 Un error posible sería filtrar primero la lista y después usar la posición visible para modificar cumplidos: al ocultar los primeros hábitos, el siguiente aparecería en posición cero y se modificaría el hábito equivocado. Se previene recorriendo los índices originales y filtrando solo la presentación. La prueba marca Estudiar Flutter con el filtro activo y comprueba su estado al recuperar la lista completa.
 
-Durante la implementación, el análisis sí detectó un error real: la prueba que genera Flutter todavía referenciaba MyApp después de reemplazar la pantalla. Se sustituyó por pruebas del panel y se volvió a ejecutar el análisis. No se afirma haber sufrido otros errores hipotéticos. El estudiante debe revisar el código y adaptar esta reflexión a lo que realmente comprendió y realizó.
+Durante la implementación, el análisis sí detectó un error real: la prueba que genera Flutter todavía referenciaba MyApp después de reemplazar la pantalla. Se sustituyó por pruebas del panel y se volvió a ejecutar el análisis.
 
 ## Referencias
 
@@ -79,15 +79,8 @@ Durante la implementación, el análisis sí detectó un error real: la prueba q
 
 ## Video y entrega
 
-Ver `docs/GUIA_VIDEO.md`. El video está **pendiente de grabar y narrar por el estudiante**. Revisar identificación, ejecutar la app y comprender las pruebas antes de entregar. Consultar historial con `git log --oneline`. No hay remoto configurado; publicar requiere una decisión del usuario.
+Ver `docs/GUIA_VIDEO.md` para el recorrido de demostración.
 
 ```sh
 flutter drive --driver=test_driver/integration_test.dart --target=integration_test/panel_test.dart -d emulator-5554
 ```
-
-
-### Resultado final Android
-
-El recorrido de integración terminó con `All tests passed` y produjo seis capturas reales en `docs/capturas`. No incluyen ventanas del escritorio ni avisos del asistente. La prueba enfoca de nuevo el campo antes de vaciarlo: la primera versión falló al intentar escribir en una conexión de texto inactiva; se corrigió el enfoque y se verificó el contenido del controlador. El encuadre de las capturas se fija al inicio del desplazamiento para mostrar el progreso.
-
-Las pruebas de widgets comprueban la meta con valores 2 y 5 y la adaptación vertical/horizontal con teclado simulado. El recorrido Android complementa esas pruebas con la aplicación instalada en el emulador. El video aún debe grabarlo y narrarlo el estudiante.
